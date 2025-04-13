@@ -216,7 +216,7 @@ apis:
     api-key:
     api-key-env: GROQ_API_KEY
     models: # https://console.groq.com/docs/models
-    # Production models
+      # Production models
       gemma2-9b-it:
         aliases: ["gemma2", "gemma"]
         max-input-chars: 24500 # 8,192
@@ -244,7 +244,7 @@ apis:
       meta-llama/llama-4-scout-17b-16e-instruct:
         aliases: ["llama4"]
         max-input-chars: 392000 # 128K
-    # Preview models
+      # Preview models
       mistral-saba-24b:
         aliases: ["saba", "mistral-saba", "saba-24b"]
         max-input-chars: 98000 # 32K
@@ -294,16 +294,31 @@ apis:
         aliases: ["llama3.1-cerebras", "llama3.1-70b-cerebras"]
         max-input-chars: 24500
 
+  openrouter:
+    base-url: https://openrouter.ai/api/v1
+    api-key:
+    api-key-env: OPENROUTER_API_KEY
+    models:
+      anthropic/claude-3.7-sonnet:thinking:
+        aliases: ["or-claude-3-7-thinking", "or-sonnet-3-7-thinking"]
+        max-input-chars: 680000
+      anthropic/claude-3-7-sonnet:
+        aliases: ["or-claude-3-7", "or-sonnet-3-7"]
+        max-input-chars: 680000
+      anthropic/claude-3-5-sonnet:
+        aliases: ["or-claude-3-5", "or-sonnet-3-5"]
+        max-input-chars: 680000
+
   sambanova:
     base-url: https://api.sambanova.ai/v1
     api-key:
     api-key-env: SAMBANOVA_API_KEY
     models: # https://docs.sambanova.ai/cloud/docs/get-started/supported-models
-    # Preview models
+      # Preview models
       DeepSeek-R1:
         aliases: ["deepseek-r1-sambanova", "deepseek-r1-preview"]
         max-input-chars: 24500 # 8k tokens
-    # Production models
+      # Production models
       DeepSeek-R1-Distill-Llama-70B:
         aliases: ["deepseek-r1-llama-sambanova", "deepseek-r1-distill"]
         max-input-chars: 98000 # 32k tokens

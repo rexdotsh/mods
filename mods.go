@@ -367,7 +367,13 @@ func (m *Mods) startCompletionCmd(content string) tea.Cmd {
 			ccfg.HTTPClient = ghCopilotHTTPClient
 			ccfg.HTTPClient.(*copilotHTTPClient).AccessToken = &accessToken
 			ccfg.BaseURL = ordered.First(api.BaseURL, accessToken.Endpoints.API)
-
+		case "openrouter":
+			key, err := m.ensureKey(api, "OPENROUTER_API_KEY", "https://openrouter.ai/keys")
+			if err != nil {
+				return modsError{err, "OpenRouter authentication failed"}
+			}
+			ccfg = openai.DefaultConfig(key)
+			ccfg.BaseURL = api.BaseURL
 		default:
 			key, err := m.ensureKey(api, "OPENAI_API_KEY", "https://platform.openai.com/account/api-keys")
 			if err != nil {
@@ -412,6 +418,8 @@ func (m *Mods) startCompletionCmd(content string) tea.Cmd {
 			return m.createCohereStream(content, cccfg, mod)
 		case "ollama":
 			return m.createOllamaStream(content, occfg, mod)
+		case "openrouter":
+			return m.createOpenRouterStream(content, ccfg, mod)
 		default:
 			return m.createOpenAIStream(content, ccfg, mod)
 		}
