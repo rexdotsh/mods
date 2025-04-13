@@ -302,10 +302,10 @@ apis:
       anthropic/claude-3.7-sonnet:thinking:
         aliases: ["or-claude-3-7-thinking", "or-sonnet-3-7-thinking"]
         max-input-chars: 680000
-      anthropic/claude-3-7-sonnet:
+      anthropic/claude-3.7-sonnet:
         aliases: ["or-claude-3-7", "or-sonnet-3-7"]
         max-input-chars: 680000
-      anthropic/claude-3-5-sonnet:
+      anthropic/claude-3.5-sonnet:
         aliases: ["or-claude-3-5", "or-sonnet-3-5"]
         max-input-chars: 680000
 
